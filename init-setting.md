@@ -116,7 +116,7 @@ kubectl create deployment nginx --image=nginx --replicas=1
 - probe: nginx-probe (EOT)
 
 
-## 5. Otel-collector, jaeger, prometheus
+## 5. Otel-collector, jaeger
 (1) kubectl create ns observability
 (2) kubectl apply -f init-setting.yaml
 (3) kubectl get all -n observability
