@@ -39,11 +39,11 @@ kubectl create deployment nginx --image=nginx --replicas=1
       RUN go mod edit -replace github.com/litmuschaos/litmus-go=../litmus-go  
       RUN go mod tidy  
       (3) 도커 이미지 생성  
-- otel-litmus(240915) 디렉토리에서 진행  
+- otel-litmus 디렉토리에서 진행  
 - docker build -t suhyen/chaos-runner:v01 -f chaos-runner/build/Dockerfile .  
 - docker push suhyen/chaos-runner:v01  
 
-3. chaos-operator  
+1. chaos-operator  
 (1) 설치  
 - git clone -b distributed-tracing --single-branch https://github.com/namkyu1999/chaos-operator.git  
 (2) 수정  
