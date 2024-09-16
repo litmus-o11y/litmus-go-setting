@@ -29,7 +29,7 @@ kubectl create deployment nginx --image=nginx --replicas=1
 (4) minikube service chaos-litmus-frontend-service -n litmus --url    
 (admin/litmus) -> (admin/Litmus1@)   
 
-### 6. Litmus Environments
+### 5. Litmus Environments
 (1) Name: local   
 (2) 환경 yaml: subscriber server addr 변경
 - kubectl get service chaos-litmus-frontend-service -n litmus  
@@ -39,13 +39,13 @@ kubectl create deployment nginx --image=nginx --replicas=1
 (3) cd ~/Downloads   
 (4) kubectl apply -f local-litmus-chaos-enable.yml   
 
-### 7. Litmus Resilience Probes (Command)
+### 6. Litmus Resilience Probes (Command)
 - Name: nginx-probe   
 - 3s / 3s / 3   
 - kubectl get pods --all-namespaces | grep nginx | grep Running | wc -l   
 - Int / > / 0   
 
-### 8. Litmus Chaos Experiments
+### 7. Litmus Chaos Experiments
 (1) probe 설정    
 - nginx-probe   
 - default / deployment / app=nginx   
