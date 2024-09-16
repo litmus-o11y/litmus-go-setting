@@ -1,6 +1,0 @@
-build/_output
-*.swp
-*.orig
-.idea/
-coverage.txt
-bin
