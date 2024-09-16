@@ -1,4 +1,4 @@
-# init-setting
+# init-setting-with-jaeger
 
 ### 1. 타겟 애플리케이션
 kubectl create deployment nginx --image=nginx --replicas=1  
