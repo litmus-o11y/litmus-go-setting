@@ -3,12 +3,12 @@
 ### 1. 타겟 애플리케이션
 kubectl create deployment nginx --image=nginx --replicas=1  
 
-### 2. Cert manager 설치  
+### 2. Cert manager  
 참고: https://cert-manager.io/docs/installation/kubectl/  
 (1) kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.15.3/cert-manager.yaml  
 (2) watch -n 1 "kubectl get all -n default"  
 
-### 3. Jaeger operator 설치
+### 3. Jaeger 
 참고: https://www.jaegertracing.io/docs/1.60/operator/   
 (1) kubectl create namespace observability   
 (2) kubectl create -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.60.0/jaeger-operator.yaml -n observability   
@@ -17,16 +17,16 @@ kubectl create deployment nginx --image=nginx --replicas=1
 (5) watch -n 1 "kubectl get all -n observability"  
 (6) minikube service simplest-query -n observability --url   
 
-### 4. OpenTelemetry Collector 설치
+### 4. OpenTelemetry Collector
 참고: https://opentelemetry.io/docs/kubernetes/helm/collector/   
 (1) helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts    
-(2) helm install my open-telemetry/opentelemetry-collector \
+(2) helm install otel open-telemetry/opentelemetry-collector \
   --set image.repository="otel/opentelemetry-collector-k8s" \
   --namespace observability \
   --values values.yaml    
 (3) watch -n 1 "kubectl get all -n observability"   
  
-### 5. Litmus 설치
+### 5. Litmus
 (1) kubectl create ns litmus   
 (2) helm install chaos litmuschaos/litmus \
 --namespace=litmus \
@@ -66,5 +66,5 @@ kubectl create deployment nginx --image=nginx --replicas=1
   image: lak9348/go-runner:t20   
 - #168 추가   
   name: OTEL_EXPORTER_OTLP_ENDPOINT     
-  value: "my-opentelemetry-collector.observability.svc.cluster.local:4317"      
+  value: "otel-opentelemetry-collector.observability.svc.cluster.local:4317"      
 
