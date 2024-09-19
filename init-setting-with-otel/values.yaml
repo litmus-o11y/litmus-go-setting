@@ -1,3 +1,5 @@
+# TODO: processors(batch), extensions(health-check), exporter(jaeger, prometheus=>backend)
+
 mode: deployment
 
 config:
