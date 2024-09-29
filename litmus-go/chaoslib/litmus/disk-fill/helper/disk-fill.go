@@ -29,7 +29,7 @@ import (
 var inject, abort chan os.Signal
 
 // Helper injects the disk-fill chaos
-func Helper(clients clients.ClientSets) {
+func Helper(ctx context.Context, clients clients.ClientSets) {
 
 	experimentsDetails := experimentTypes.ExperimentDetails{}
 	eventsDetails := types.EventDetails{}

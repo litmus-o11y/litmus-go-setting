@@ -3,6 +3,7 @@ package helper
 import (
 	"bufio"
 	"bytes"
+	"context"
 	"fmt"
 	"github.com/litmuschaos/litmus-go/pkg/cerrors"
 	"github.com/palantir/stacktrace"
@@ -51,7 +52,7 @@ const (
 )
 
 // Helper injects the stress chaos
-func Helper(clients clients.ClientSets) {
+func Helper(ctx context.Context, clients clients.ClientSets) {
 
 	experimentsDetails := experimentTypes.ExperimentDetails{}
 	eventsDetails := types.EventDetails{}
