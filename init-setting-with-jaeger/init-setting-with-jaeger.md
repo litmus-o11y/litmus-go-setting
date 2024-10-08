@@ -13,9 +13,9 @@ kubectl create deployment nginx --image=nginx --replicas=1
 (1) kubectl create namespace observability   
 (2) kubectl create -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.60.0/jaeger-operator.yaml -n observability   
 (3) watch -n 1 "kubectl get all -n observability"  
-(4) kubectl apply -f simplest.yaml  
-(5) watch -n 1 "kubectl get all -n default"  
-(6) minikube service simplest-query -n default --url   
+(4) kubectl apply -f simplest.yaml -n observability   
+(5) watch -n 1 "kubectl get all -n observability"  
+(6) minikube service simplest-query -n observability --url   
 
 ### 4. Litmus 설치
 (1) kubectl create ns litmus   
@@ -56,4 +56,4 @@ kubectl create deployment nginx --image=nginx --replicas=1
   image: lak9348/go-runner:t20   
 - #168 추가   
   name: OTEL_EXPORTER_OTLP_ENDPOINT     
-  value: "simplest-collector.default.svc.cluster.local:4317"      
+  value: "simplest-collector.observability.svc.cluster.local:4317"      
